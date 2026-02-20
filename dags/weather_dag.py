@@ -45,8 +45,13 @@ def weather_pipeline():
     @task 
     def load():
         import pandas as pd
-        df = pd.read_parquet('/opt/airflow/data/temp_data.parquet')
-        load_weather_data('sp_weather', df)
+        try:
+            df = pd.read_parquet('/opt/airflow/data/temp_data.parquet')
+            load_weather_data('sp_weather', df)
+        except Exception as e:
+            print(f"Database connection error: {e}")
+            print("Ensure PostgreSQL is running on the correct host and port")
+            raise
         
     extract_task = extract()
     transform_task = transform(extract_task)
