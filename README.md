@@ -62,8 +62,7 @@ O pipeline coleta dados meteorológicos da API OpenWeatherMap a cada hora, trans
 ### 1️⃣ Clone o Repositório
 
 ```bash
-git clone https://github.com/vbluuiza/pipeline_etl_weather_data_tutorial_youtube.git
-cd pipeline_etl_weather_data_tutorial_youtube
+git clone https://github.com/Elbiabuglio/weather_data_pipeline_etl.git
 ```
 
 ### 2️⃣ Obtenha sua API Key do OpenWeatherMap
@@ -350,3 +349,4 @@ docker-compose down
 rm -rf logs/*
 ```
 ---
+
