@@ -1,37 +1,63 @@
-# 🌤️ Pipeline ETL - Dados Climáticos de São Paulo
+# 🌤️ Weather Data ETL Pipeline – São Paulo
 
+Pipeline ETL automatizado para coleta, transformação e armazenamento de dados meteorológicos em tempo real da cidade de São Paulo.
 
-> Pipeline ETL automatizado para coleta, transformação e armazenamento de dados meteorológicos em tempo real da cidade de São Paulo.
-
----
-
-## 📋 Índice
-
-- [Sobre o Projeto](#-sobre-o-projeto)
-- [Arquitetura do Pipeline](#-arquitetura-do-pipeline)
-- [Stack Tecnológica](#-stack-tecnológica)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Pré-requisitos](#-pré-requisitos)
-- [Instalação e Configuração](#-instalação-e-configuração)
-- [Como Executar](#-como-executar)
-- [Detalhamento das Etapas](#-detalhamento-das-etapas)
-- [Análise de Dados](#-análise-de-dados)
-- [Troubleshooting](#-troubleshooting)
-- [Contribuindo](#-contribuindo)
+Projeto desenvolvido com foco em boas práticas de Engenharia de Dados, orquestração com Airflow e arquitetura containerizada.
 
 ---
 
-## 🎯 Sobre o Projeto
+## 📌 Visão Geral
 
-Este projeto foi desenvolvido  com o objetivo de demonstrar a construção de um **pipeline ETL completo** utilizando as melhores práticas de Engenharia de Dados.
+Este projeto implementa um pipeline ETL completo que:
 
-O pipeline coleta dados meteorológicos da API OpenWeatherMap a cada hora, transforma os dados para um formato estruturado e os armazena em um banco de dados PostgreSQL para análises futuras.
+- 📥 Extrai dados da API OpenWeatherMap  
+- 🔄 Transforma os dados em formato estruturado  
+- 💾 Carrega os dados em um PostgreSQL  
+- ⏱ Executa automaticamente a cada 1 hora via Apache Airflow  
+
+Objetivos técnicos:
+
+- Construção de pipelines escaláveis  
+- Orquestração com Airflow  
+- Separação de camadas ETL  
+- Persistência em banco relacional  
+- Uso de Docker para reprodutibilidade  
 
 ---
 
 ## 🏗️ Arquitetura do Pipeline
 
-<img src='arquitetura_de_dados_draw.png' alt='Arquitetura do Pipeline ETL'>
+<img width="1696" height="608" alt="Gemini_Generated_Image_ck32s0ck32s0ck32" src="https://github.com/user-attachments/assets/bf2e240b-fd99-4380-988c-f7d0531286d2" />
+
+weather-data-pipeline/
+
+│
+
+├── dags/
+
+│ └── weather_dag.py
+
+│
+
+├── src/
+
+│ ├── extract_data.py
+
+│ ├── transform_data.py
+
+│ └── load_data.py
+
+│
+├── data/
+
+├── notebooks/
+
+├── config/
+
+├── docker-compose.yml
+
+└── README.md
+
 
 ---
 
@@ -63,6 +89,7 @@ O pipeline coleta dados meteorológicos da API OpenWeatherMap a cada hora, trans
 
 ```bash
 git clone https://github.com/Elbiabuglio/weather_data_pipeline_etl.git
+cd weather_data_pipeline_etl
 ```
 
 ### 2️⃣ Obtenha sua API Key do OpenWeatherMap
@@ -349,4 +376,5 @@ docker-compose down
 rm -rf logs/*
 ```
 ---
+
 
